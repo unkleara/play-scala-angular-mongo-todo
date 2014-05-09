@@ -1,0 +1,29 @@
+<div class="todos">
+
+    <div class="todolist">
+        <ul>
+            <li data-ng-repeat="todo in todos"><input type="text" style="display: none;"><span class="edit">{{ todo.item }}</span> <a href="#" class="delete" data-ng-click="delete()">X</a></li>
+        </ul>
+    </div>
+
+    <form name="form" data-ng-submit="create($index)" class="todoform">
+
+        <dl class=" " id="content_field">
+            <dt><label for="content"></label></dt>
+            <dd>
+                <input type="text"
+                       id="content"
+                       name="content"
+                       placeholder="What do you need to do?"
+                       data-ng-model="newTodo.item">
+            </dd>
+
+            <dd class="info">Required</dd>
+        </dl>
+
+        <input type="submit" value="+">
+
+    </form>
+
+
+</div>

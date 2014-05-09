@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <meta charset="UTF-8">
+    <title>Todos - PlayFramework-AngularJS-ReactiveMongo</title>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+    <!--<script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>-->
+    <script src="@routes.Assets.at("javascripts/angular.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/angular-route.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/angular-resource.min.js")" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/angular-animate.min.js")" type="text/javascript"></script>
+   </head>
+    <body data-ng-app="app">
+
+    <h1 data-ng-bind="appHeader">&nbsp;</h1>
+
+         <div data-ng-view></div>
+        <script src="@routes.Assets.at("ng-app/scripts/app.js")" type="text/javascript"></script>
+    </body>
+</html>
