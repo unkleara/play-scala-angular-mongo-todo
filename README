@@ -1,9 +1,8 @@
-Play 2.2.x Todo list using AngularJS and ReactiveMongo
-======
+# Play 2.2.x Todo list using AngularJS and ReactiveMongo
 
 Only have front-end functioning at the moment. Will add other layers soon...
 
-Referenced following repos for help.
+##Referenced following repos for help.
 * [jmparsons/play-scala-backbone-todo](https://github.com/jmparsons/play-scala-backbone-todo) 'Copied CSS and HTML to spend more time with framework'
 * [angyjoe/eventual](https://github.com/angyjoe/eventual)
 
