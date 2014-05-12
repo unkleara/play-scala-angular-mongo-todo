@@ -18,13 +18,16 @@ h2 {
   background: #fff;
   width: 440px;
   margin: 0 auto;
-  padding: 5px 10px 10px;
+  padding: 5px 10px 20px;
   border: 1px solid #ccc;
   border-radius: 3px;
   box-shadow: 0 5px 30px #ccc;
 }
 .info {
-  display: none;
+  display: block;
+  color: red;
+  font-size: 10px;
+  padding: 2px 0 2px 5px;
 }
 .todoform {
   position: relative;
@@ -118,4 +121,7 @@ input:focus {
   font-size: 12px;
   text-align: center;
   padding: 10px 0;
+}
+ng-invalid-required {
+    border: 1px solid red;
 }

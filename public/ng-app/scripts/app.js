@@ -1,6 +1,5 @@
 'use strict';
 var app = angular.module("app", ["ngRoute", "ngResource"])
-    .constant("apiUrl", "http://locahost:9000/api")
     .config(["$routeProvider", function($routeProvider) {
     		$routeProvider.when('/', {
     			controller: 'TodoCtrl',
@@ -11,21 +10,36 @@ var app = angular.module("app", ["ngRoute", "ngResource"])
     		}])
     .config(["$locationProvider", function($locationProvider) {
 		return $locationProvider.html5Mode(true).hashPrefix("!");
-	}
-]);
+	    }
+    ]);
 
-app.controller("TodoCtrl", ["$scope", function($scope) {
+app.factory("Todo", ["$resource", function($resource) {
+    return $resource("/todos/:id", {id: "@id"}, { update: { method: 'PUT' }})
+}]);
+
+app.controller("TodoCtrl", ["$scope", "Todo", function($scope, Todo) {
+
     $scope.appHeader = "Todos";
     $scope.newTodo = {};
-    $scope.todos = [];
-    $scope.create = function() {
-        var todo = $scope.newTodo;
-        $scope.todos.push(todo);
+    $scope.todos = Todo.query();
+
+    $scope.createTodo = function() {
+        Todo.save($scope.newTodo, function(resource) {
+        console.log(resource);
+        $scope.todos.push(resource);
         $scope.newTodo = {};
+
+        }, function(response) {
+            console.log("Error: " + response.error)
+        });
     };
 
-    $scope.delete = function(idx) {
-        console.log(idx);
-        $scope.todos.splice(idx, true);
+    $scope.removeTodo = function(idx, todoId) {
+        console.log(todoId.$oid);
+        Todo.delete({id: todoId.$oid}, function() {
+            $scope.todos.splice(idx, true);
+        }, function(response) {
+            console.log("Error: " + response.error)
+        });
     };
 }]);

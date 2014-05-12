@@ -6,12 +6,10 @@
 GET     /                           controllers.Application.index
 
 # TodoController Actions
-GET     /todos                      controllers.Todo.index
-POST    /todo                       controllers.Todo.create
-GET     /todo/:id                   controllers.Todo.todo(id: Long)
-POST    /todo/:id                   controllers.Todo.update(id: Long)
-POST    /todo/:id/delete            controllers.Todo.delete(id: Long)
-
+GET     /todos                      controllers.Todos.index
+POST    /todos                      controllers.Todos.create
+POST    /todos/:id                  controllers.Todos.update(id: String)
+DELETE  /todos/:id                  controllers.Todos.delete(id: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
